@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
-import { User } from "../App";
-import "./Search.module.css";
+import { User } from "../../App";
+import s from "./Search.module.css";
 
 enum State {
     Idle = "idle",
@@ -43,21 +43,30 @@ const Search: FC<{ setUsers: (users: User[]) => void }> = ({ setUsers }) => {
 
     return (
         <form
+            className={s.form}
             onSubmit={(e) => {
                 handleUsers();
                 e.preventDefault();
             }}
         >
-            <input type="text" placeholder="Enter username" value={query} onChange={(e) => setQuery(e.target.value)} />
-            <button type="submit" disabled={query.length === 0}>
+            <input
+                type="text"
+                className={s.input}
+                placeholder="Enter username"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+            />
+            <button type="submit" className={s.button} disabled={query.length === 0}>
                 Search
             </button>
-            {visibleQuery.length > 0 && state === State.Idle && (
-                <p>Showing top 5 results for the query "{visibleQuery}"</p>
-            )}
-            {state === State.NoResults && <p>No results found for the query "{visibleQuery}"</p>}
-            {state === State.Error && <p>Error fetching users for the query "{visibleQuery}"</p>}
-            {state === State.Loading && <p>Loading...</p>}
+            <p className={s.message}>
+                {visibleQuery.length > 0 && state === State.Idle && (
+                    <>Showing top 5 results for the query "{visibleQuery}"</>
+                )}
+                {state === State.NoResults && <>No results found for the query "{visibleQuery}"</>}
+                {state === State.Error && <>Error fetching users for the query "{visibleQuery}"</>}
+                {state === State.Loading && <>Loading...</>}
+            </p>
         </form>
     );
 };

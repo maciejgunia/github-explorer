@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { User } from "../App";
+import { User } from "../../App";
 import s from "./UserItem.module.css";
 
 const UserItem: FC<{ data: User }> = ({ data }) => {
