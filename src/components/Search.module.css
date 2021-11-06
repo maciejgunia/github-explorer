@@ -1,0 +1,38 @@
+form {
+    display: grid;
+    grid-gap: var(--size-l);
+}
+
+input {
+    border: 1px solid silver;
+    background: whitesmoke;
+    padding: var(--size-m);
+    border-radius: var(--b-radius);
+}
+
+input:focus {
+    outline: none;
+}
+
+button {
+    background: steelblue;
+    border: 1px solid steelblue;
+    color: white;
+    padding: var(--size-m);
+    border-radius: var(--b-radius);
+    cursor: pointer;
+    transition: opacity 200ms;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button[disabled] {
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+
+p {
+    opacity: 0.7;
+}
