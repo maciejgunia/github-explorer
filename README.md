@@ -1,3 +1,7 @@
+# Project Preview
+
+Project is deployed [here](https://peaceful-wing-3df969.netlify.app/).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

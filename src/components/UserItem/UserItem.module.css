@@ -5,6 +5,11 @@
     cursor: pointer;
     display: flex;
     justify-content: space-between;
+    transition: transform 200ms;
+}
+
+.header:hover {
+    transform: translateX(4px);
 }
 
 .message {
