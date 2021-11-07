@@ -1,5 +1,12 @@
-.wrapper {
-    background: whitesmoke;
+.header {
+    background: var(--c-whitesmoke);
     padding: var(--size-m);
     border-radius: var(--b-radius);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.message {
+    padding: var(--size-s);
 }

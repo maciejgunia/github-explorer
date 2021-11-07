@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { User } from "../../App";
+import { User } from "../../domain/User";
 import UserItem from "./../UserItem/UserItem";
 import s from "./UserList.module.css";
 

@@ -3,6 +3,11 @@
     --size-m: 12px;
     --size-l: 16px;
     --b-radius: 2px;
+
+    --c-white: white;
+    --c-whitesmoke: rgb(242, 242, 242);
+    --c-silver: rgb(224, 224, 224);
+    --c-steelblue: rgb(45, 156, 219);
 }
 
 body {

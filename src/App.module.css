@@ -3,5 +3,5 @@
     grid-gap: var(--size-l);
     padding: var(--size-l);
     max-width: 600px;
-    margin: 0 auto;
+    margin: var(--size-l) auto;
 }

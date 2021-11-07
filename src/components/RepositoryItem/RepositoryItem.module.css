@@ -1,0 +1,20 @@
+.wrapper {
+    background: var(--c-silver);
+    padding: 12px 6px;
+    border-radius: var(--b-radius);
+}
+
+.header {
+    display: flex;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.stars {
+    margin-left: auto;
+}
+
+.description {
+    margin: var(--size-s) 0 0;
+    line-height: 1.2;
+}

@@ -4,8 +4,8 @@
 }
 
 .input {
-    border: 1px solid silver;
-    background: whitesmoke;
+    border: 1px solid var(--c-silver);
+    background: var(--c-whitesmoke);
     padding: var(--size-m);
     border-radius: var(--b-radius);
 }
@@ -15,9 +15,9 @@
 }
 
 .button {
-    background: steelblue;
-    border: 1px solid steelblue;
-    color: white;
+    background: var(--c-steelblue);
+    border: 1px solid var(--c-steelblue);
+    color: var(--c-white);
     padding: var(--size-m);
     border-radius: var(--b-radius);
     cursor: pointer;

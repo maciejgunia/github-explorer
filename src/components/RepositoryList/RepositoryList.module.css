@@ -1,0 +1,5 @@
+.wrapper {
+    margin: 0 0 0 var(--size-l);
+    display: grid;
+    grid-gap: var(--size-s);
+}

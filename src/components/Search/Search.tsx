@@ -1,24 +1,18 @@
 import { FC, useState } from "react";
-import { User } from "../../App";
+import { LoadingState } from "../../domain/LodingState";
+import { User } from "../../domain/User";
 import s from "./Search.module.css";
-
-enum State {
-    Idle = "idle",
-    Loading = "loading",
-    Error = "error",
-    NoResults = "no-results"
-}
 
 const Search: FC<{ setUsers: (users: User[]) => void }> = ({ setUsers }) => {
     const [query, setQuery] = useState("");
     const [visibleQuery, setVisibleQuery] = useState("");
-    const [state, setState] = useState(State.Idle);
+    const [state, setState] = useState(LoadingState.Idle);
 
     function handleUsers() {
         setVisibleQuery(query);
 
         if (query.length > 0) {
-            setState(State.Loading);
+            setState(LoadingState.Loading);
             fetch(`https://api.github.com/search/users?q=${query}&per_page=5`)
                 .then((res) => {
                     if (res.status === 200) {
@@ -29,15 +23,15 @@ const Search: FC<{ setUsers: (users: User[]) => void }> = ({ setUsers }) => {
                 })
                 .then((data) => {
                     setUsers(data.items);
-                    setState(data.items.length > 0 ? State.Idle : State.NoResults);
+                    setState(data.items.length > 0 ? LoadingState.Idle : LoadingState.NoResults);
                 })
                 .catch(() => {
                     setUsers([]);
-                    setState(State.Error);
+                    setState(LoadingState.Error);
                 });
         } else {
             setUsers([]);
-            setState(State.Idle);
+            setState(LoadingState.Idle);
         }
     }
 
@@ -60,12 +54,12 @@ const Search: FC<{ setUsers: (users: User[]) => void }> = ({ setUsers }) => {
                 Search
             </button>
             <p className={s.message}>
-                {visibleQuery.length > 0 && state === State.Idle && (
+                {visibleQuery.length > 0 && state === LoadingState.Idle && (
                     <>Showing top 5 results for the query "{visibleQuery}"</>
                 )}
-                {state === State.NoResults && <>No results found for the query "{visibleQuery}"</>}
-                {state === State.Error && <>Error fetching users for the query "{visibleQuery}"</>}
-                {state === State.Loading && <>Loading...</>}
+                {state === LoadingState.NoResults && <>No results found for the query "{visibleQuery}"</>}
+                {state === LoadingState.Error && <>Error fetching users for the query "{visibleQuery}"</>}
+                {state === LoadingState.Loading && <>Loading...</>}
             </p>
         </form>
     );
