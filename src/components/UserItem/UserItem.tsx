@@ -38,7 +38,7 @@ const UserItem: FC<{ data: User }> = ({ data }) => {
 
     return (
         <>
-            <div className={s.header} onClick={getRepos}>
+            <div className={s.header} onClick={getRepos} data-testid="header">
                 <span>{data.login}</span>
                 <span>
                     {state === LoadingState.Inactive && <FontAwesomeIcon icon={faAngleDown} />}
@@ -47,7 +47,7 @@ const UserItem: FC<{ data: User }> = ({ data }) => {
             </div>
             {state === LoadingState.Idle && <RepositoryList data={repositories}></RepositoryList>}
             {state !== LoadingState.Inactive && state !== LoadingState.Idle && (
-                <p className={s.message}>
+                <p className={s.message} data-testid="message">
                     {state === LoadingState.Loading && <>Loading...</>}
                     {state === LoadingState.NoResults && <>No repositories found</>}
                     {state === LoadingState.Error && <>Error fetching repositories</>}

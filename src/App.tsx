@@ -12,7 +12,7 @@ const App: FC = () => {
         <div className="App">
             <div className={s.wrapper}>
                 <Search setUsers={setUsers}></Search>
-                <UserList users={users}></UserList>
+                <UserList data={users}></UserList>
             </div>
         </div>
     );

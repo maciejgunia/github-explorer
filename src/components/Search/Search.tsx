@@ -45,15 +45,16 @@ const Search: FC<{ setUsers: (users: User[]) => void }> = ({ setUsers }) => {
         >
             <input
                 type="text"
+                data-testid="input"
                 className={s.input}
                 placeholder="Enter username"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
             />
-            <button type="submit" className={s.button} disabled={query.length === 0}>
+            <button type="submit" className={s.button} disabled={query.length === 0} data-testid="button">
                 Search
             </button>
-            <p className={s.message}>
+            <p className={s.message} data-testid="message">
                 {visibleQuery.length > 0 && state === LoadingState.Idle && (
                     <>Showing top 5 results for the query "{visibleQuery}"</>
                 )}

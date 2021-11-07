@@ -1,6 +1,12 @@
-# Project Preview
+# Usage
 
-Project is deployed [here](https://peaceful-wing-3df969.netlify.app/).
+-   Project is deployed [here](https://peaceful-wing-3df969.netlify.app/).
+-   I haven't used a token to authenticate with the API as it would require a backend or at least some serverless functions which is probably out of a scope for this app. If you happen to receive failed responses, unfortunately you have to wait a bit.
+-   I used some of my own interpretations of the design in places where the requirements were not clear, incomplete or wrong in my opinion. Normally those would be the things I would discuss and make sure my approach is correct and approved.
+-   I haven't used more advanced libraries / patterns just to show my knowledge and the code would probably look a bit different when built as a part of a production application (different component split, more abstractions etc.), but I wanted to keep it as simple as it could be.
+-   Unit test should not be treated as an extensive list, there is more stuff that probably should be tested, those included are just a represantation.
+
+# Development
 
 # Getting Started with Create React App
 
