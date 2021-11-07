@@ -19,7 +19,7 @@ const UserItem: FC<{ data: User }> = ({ data }) => {
 
         setState(LoadingState.Loading);
 
-        fetch(`https://api.github.com/users/${data.login}/repos?per_page=5&sort=updated`)
+        fetch(`https://api.github.com/users/${data.login}/repos?sort=updated`)
             .then((res) => {
                 if (res.status === 200) {
                     return res.json();
