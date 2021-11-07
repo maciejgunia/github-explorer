@@ -1,7 +1,6 @@
 import { FC, useState } from "react";
 import { LoadingState } from "../../domain/LodingState";
 import { User } from "../../domain/User";
-import { token } from "../../helpers/token";
 import s from "./Search.module.css";
 
 const Search: FC<{ setUsers: (users: User[]) => void }> = ({ setUsers }) => {
@@ -14,11 +13,7 @@ const Search: FC<{ setUsers: (users: User[]) => void }> = ({ setUsers }) => {
 
         if (query.length > 0) {
             setState(LoadingState.Loading);
-            fetch(`https://api.github.com/search/users?q=${query}&per_page=5`, {
-                headers: {
-                    Authorization: `token ${token}`
-                }
-            })
+            fetch(`https://api.github.com/search/users?q=${query}&per_page=5`)
                 .then((res) => {
                     if (res.status === 200) {
                         return res.json();

@@ -4,7 +4,6 @@ import { FC, useState } from "react";
 import { LoadingState } from "../../domain/LodingState";
 import { Repository } from "../../domain/Repository";
 import { User } from "../../domain/User";
-import { token } from "../../helpers/token";
 import RepositoryList from "../RepositoryList/RepositoryList";
 import s from "./UserItem.module.css";
 
@@ -20,11 +19,7 @@ const UserItem: FC<{ data: User }> = ({ data }) => {
 
         setState(LoadingState.Loading);
 
-        fetch(`https://api.github.com/users/${data.login}/repos?per_page=5&sort=updated`, {
-            headers: {
-                Authorization: `token ${token}`
-            }
-        })
+        fetch(`https://api.github.com/users/${data.login}/repos?per_page=5&sort=updated`)
             .then((res) => {
                 if (res.status === 200) {
                     return res.json();
